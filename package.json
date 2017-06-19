@@ -1,0 +1,21 @@
+{
+  "name": "my-node-server",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "test2": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Vollmer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "forever": "^0.15.3",
+    "http": "0.0.0",
+    "pg": "^6.2.4",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.81.0",
+    "sequelize": "^4.1.0"
+  }
+}
