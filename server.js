@@ -3,6 +3,8 @@ var router = require("./app/router");
 
 const port = 3000;
 const app = express();
+
+app.set('db', require('./app/db'));
 router(app);
 
 app.listen(port, (err) => {
