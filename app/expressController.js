@@ -1,4 +1,6 @@
-var {User, Pet} = require('./db')
+var {models} = require('./db')
+var User = models.User;
+var Pet = models.Pet;
 
 module.exports = function(app){
 	app.get('/express', function(request, response){

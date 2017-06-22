@@ -48,6 +48,7 @@ sequelize.sync({force: true})
         }));
   });
 
-
-module.exports.User = User;
-module.exports.Pet = Pet;
+module.exports.models = {
+	User,
+	Pet
+};
