@@ -37,15 +37,17 @@ sequelize.sync({force: true})
     user_name: 'janedoe',
     birthday: new Date(1980, 6, 20),
 	pets: [{pet_name:'oreo'},{pet_name:'gema'}]
-  }, {
-	include: [{
-		association: User_Pets
-	}]
-  }))
+  }, {include: [{association: User_Pets}]}))
   .then(jane => {
-    console.log(jane.get({
-          plain: true
-        }));
+    console.log(jane.get({plain: true}));
+  })
+  .then(() => User.create({
+	user_name: 'unnerjoe',
+	birthday: new Date(1962, 7, 5),
+	pets: [{pet_name:'bugs'}, {pet_name:'dolly'}, {pet_name:'roger'}]
+  }, {include: [{association: User_Pets}]}))
+  .then(unner => {
+    console.log(unner.get({plain:true}));	
   });
 
 module.exports.models = {

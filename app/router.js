@@ -1,7 +1,9 @@
 const expressController = require('./expressController');
-const fooController = require('./fooController');
+const userController = require('./userController');
+const petController = require('./petController');
 
 module.exports = function(app){
+	userController(app);
+	petController(app);
 	expressController(app);
-	fooController(app);
 }

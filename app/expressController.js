@@ -1,16 +1,11 @@
-var {models} = require('./db')
-var User = models.User;
-var Pet = models.Pet;
 
 module.exports = function(app){
 	app.get('/express', function(request, response){
-		response.send('Hello from express')
+		response.send('Hello from express\n');
 	});
 	
-	app.get('/pets', function(request, response){
-		Pet.findAll().then(pets => {
-			response.send(pets);
-		})
+	app.get('/*', function(request, response){
+		response.send('Hello World.\n');
 	})
 }
 
