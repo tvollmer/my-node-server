@@ -10,6 +10,7 @@
   "author": "Tim Vollmer",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "forever": "^0.15.3",
     "pg": "^6.2.4",

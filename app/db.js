@@ -12,11 +12,10 @@ const sequelize = new Sequelize('postgres', 'postgres', 'pass1word', {
 	}	
 });
 
-const User = sequelize.define('userPerson', {
+const User = sequelize.define('user', {
   user_name: Sequelize.STRING,
   birthday: Sequelize.DATE
 }, {
-	tableName: 'my_user_persons',
 	underscored: true,
 	version: true
 });
@@ -24,7 +23,6 @@ const User = sequelize.define('userPerson', {
 const Pet = sequelize.define('pet', {
 	pet_name: Sequelize.STRING
 }, {
-	tableName: 'my_pets',
 	underscored: true,
 	version: true
 });
