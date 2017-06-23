@@ -52,3 +52,8 @@ module.exports.models = {
 	User,
 	Pet
 };
+
+module.exports.relationships = {
+	Pet_User,
+	User_Pets
+}

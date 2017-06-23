@@ -1,6 +1,7 @@
-var {models} = require('./db')
+var {models, relationships} = require('./db')
 var User = models.User;
 var Pet = models.Pet;
+var Pet_User = relationships.Pet_User;
 //const {OptimisticLockError} = require('sequelize/lib/errors');
 
 module.exports = function(app){
@@ -35,5 +36,18 @@ module.exports = function(app){
 				console.log('encountered an err', err);
 			})
 	});
+	
+	app.post('/pets', function(req, res){
+		let newPet = req.body;
+		Pet.create(newPet)
+		  	.then((upd) => {
+				res.send(upd.get());
+			})
+			.catch(err => {
+				res.writeHead( 500 );
+				res.end();
+				console.log('encountered an err', err);
+			})
+	})
 	
 }

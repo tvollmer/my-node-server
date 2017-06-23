@@ -15,4 +15,16 @@ module.exports = function(app){
 			});
 	});
 	
+	app.get('/users/:userId', function( request, response ){
+		User.findById(request.params.userId, {include:[{model: Pet}]})
+			.then(users => { 
+				response.send(users); 
+			})
+			.catch(function(err){
+				response.writeHead( 500 );
+				response.end();
+				console.log('encountered an err', err);
+			});
+	});
+	
 }
