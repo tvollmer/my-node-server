@@ -34,7 +34,7 @@ module.exports = function(app){
 				res.writeHead( 500 );
 				res.end();
 				console.log('encountered an err', err);
-			})
+			});
 	});
 	
 	app.post('/pets', function(req, res){
@@ -47,7 +47,26 @@ module.exports = function(app){
 				res.writeHead( 500 );
 				res.end();
 				console.log('encountered an err', err);
+			});
+	});
+	
+	app.delete('/pets/:petId', function(req, res){
+		let petId = req.params.petId;
+		Pet.destroy({where: {id: petId}})
+			.then(rowsUpdated => {
+				console.log('rowsupdated was ', rowsUpdated);
+				if ( rowsUpdated === 1 ){
+					res.sendStatus(204);
+				} else {
+					let err = {id: petId, error: 'RecordNotExistsError', message: 'please verify your id.'};
+					res.status(409).send(err);		
+				}
 			})
-	})
+			.catch(err => {
+				res.writeHead( 500 );
+				res.end();
+				console.log('encountered an err', err);
+			});
+	});
 	
 }
